@@ -28,6 +28,7 @@ Use this guide to deploy the HRMS Lite backend to **Render** or **Railway**. Bot
 3. Configure:
    - **Root Directory:** `backend` (if your repo root is the project root and backend is in `backend/`).
    - **Runtime:** Python 3.
+   - **Python version:** The repo includes a `.python-version` file set to `3.12` so Render does not use Python 3.14 (which can break builds for packages like `pydantic-core`). To override, set the **Environment Variable** `PYTHON_VERSION` to e.g. `3.12.7`.
    - **Build Command:**
      ```bash
      pip install -r requirements.txt
