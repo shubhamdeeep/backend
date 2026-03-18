@@ -13,6 +13,9 @@ if _raw_url.startswith("postgresql://") and "+asyncpg" not in _raw_url:
 else:
     DATABASE_URL = _raw_url
 
-# Comma-separated origins for CORS (e.g. https://your-app.vercel.app); default allows localhost
-CORS_ORIGINS = os.getenv("CORS_ORIGINS", "http://localhost:5173,http://127.0.0.1:5173").strip().split(",")
+# Comma-separated origins for CORS (e.g. https://your-app.vercel.app); default allows localhost + Vercel frontend
+CORS_ORIGINS = os.getenv(
+    "CORS_ORIGINS",
+    "http://localhost:5173,http://127.0.0.1:5173,https://frontend-six-neon-69.vercel.app",
+).strip().split(",")
 CORS_ORIGINS = [o.strip() for o in CORS_ORIGINS if o.strip()]
